@@ -1,3 +1,6 @@
+# Write a function that reads a directory full of files and returns the number of non NA
+# values in each file.
+
 complete <- function(directory, id = 1:332)
 {
   
@@ -12,8 +15,10 @@ complete <- function(directory, id = 1:332)
     leitura_da_base <- lapply(nome_dos_arquivos[[i]], read.csv)
     leitura_da_base <- as.data.frame(leitura_da_base)
     
+    sum_trial <- sum(!is.na(leitura_da_base$sulfate)) + sum(!is.na(leitura_da_base$nitrate))
     
-    list_of_na[i] <- sum(is.na(leitura_da_base))
+    list_of_na[i] <- sum_trial
+    
   }
   
   
